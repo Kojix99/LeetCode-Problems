@@ -1,7 +1,6 @@
 public class Solution {
     public IList<IList<string>> GroupAnagrams(string[] strs) 
     {
-        IList<IList<string>> GroupedAnagrams = new List<IList<string>>();
         Dictionary<string, List<string>> AnagramsDict = new Dictionary<string, List<string>>();
 
         for(int i = 0; i < strs.Length; i++)
@@ -15,11 +14,7 @@ public class Solution {
             AnagramsDict[new string(chars)].Add(strs[i]);
 
         }
-        foreach(List<string> OneAnagramGroup in AnagramsDict.Values)
-        {
-            GroupedAnagrams.Add(OneAnagramGroup);
-        }
 
-        return GroupedAnagrams;
+        return new List<IList<string>>(AnagramsDict.Values);
     }
 }
